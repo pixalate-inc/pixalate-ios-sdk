@@ -1,6 +1,0 @@
-framework module pxsdk_lib_ios {
-  umbrella header "pxsdk-lib-ios-umbrella.h"
-
-  export *
-  module * { export * }
-}

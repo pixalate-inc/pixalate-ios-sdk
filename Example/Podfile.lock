@@ -1,11 +1,11 @@
 PODS:
   - Expecta (1.0.6)
-  - pxsdk-lib-ios (0.1.0)
+  - pixalate-ios-sdk (0.1.0)
   - Specta (1.0.7)
 
 DEPENDENCIES:
   - Expecta
-  - pxsdk-lib-ios (from `../`)
+  - pixalate-ios-sdk (from `../`)
   - Specta
 
 SPEC REPOS:
@@ -14,14 +14,14 @@ SPEC REPOS:
     - Specta
 
 EXTERNAL SOURCES:
-  pxsdk-lib-ios:
+  pixalate-ios-sdk:
     :path: "../"
 
 SPEC CHECKSUMS:
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
-  pxsdk-lib-ios: 8a9ffd5fc9a506cd09ca109bca8aa865a477cecf
+  pixalate-ios-sdk: a4c95c0add81c4b0bcccf032d2729f8452a2c700
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
 
-PODFILE CHECKSUM: 9ba2887337bf41dbf1a88c5cbc24c89d25a8b2bb
+PODFILE CHECKSUM: 0248d0095a3f60caac041737ccb6dd3b6e613ddf
 
 COCOAPODS: 1.6.1

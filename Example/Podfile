@@ -3,7 +3,7 @@ use_frameworks!
 platform :ios, '8.0'
 
 target 'pxsdk-lib-ios_Example' do
-  pod 'pxsdk-lib-ios', :path => '../'
+  pod 'pixalate-ios-sdk', :path => '../'
 
   target 'pxsdk-lib-ios_Tests' do
     inherit! :search_paths

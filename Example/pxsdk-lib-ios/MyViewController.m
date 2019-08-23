@@ -19,7 +19,7 @@
 {
     [super viewDidLoad];
     
-    Pixalate.globalConfig = [PXGlobalConfig makeWithUsername:@"jason" password:@"brest" threshold:0.75 cacheAge:1000*60*60*2];
+    Pixalate.globalConfig = [PXGlobalConfig makeWithUsername:@"jason" password:@"test" threshold:0.75 cacheAge:1000*60*60*2];
     
     [Pixalate requestBlockStatus:[PXBlockingParameters makeWithBuilder:^(PXBlockingParametersBuilder *builder) {
 //        builder.deviceId = @"asdf1234";

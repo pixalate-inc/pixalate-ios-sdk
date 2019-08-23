@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2379E1FA87C79B8DD56FBD83 /* Pods_pxsdk_lib_ios_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A8032D674D1CAC0D0F72A9 /* Pods_pxsdk_lib_ios_Example.framework */; };
-		4307F22A2303767100C6506B /* Pixalate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4307F2292303767100C6506B /* Pixalate.m */; };
-		4307F22D2303787700C6506B /* PXImpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 4307F22C2303787700C6506B /* PXImpression.m */; };
-		430C3E4823060E0E003CABCB /* PXGlobalConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 430C3E4723060E0E003CABCB /* PXGlobalConfig.m */; };
-		430C3E4B23061317003CABCB /* PXBlockingParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 430C3E4A23061317003CABCB /* PXBlockingParameters.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -42,14 +38,6 @@
 
 /* Begin PBXFileReference section */
 		3A040EB7C0A9B0ECD11377CE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		4307F2282303762100C6506B /* Pixalate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pixalate.h; sourceTree = "<group>"; };
-		4307F2292303767100C6506B /* Pixalate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pixalate.m; sourceTree = "<group>"; };
-		4307F22B2303775E00C6506B /* PXImpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXImpression.h; sourceTree = "<group>"; };
-		4307F22C2303787700C6506B /* PXImpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXImpression.m; sourceTree = "<group>"; };
-		430C3E4623060A73003CABCB /* PXGlobalConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXGlobalConfig.h; sourceTree = "<group>"; };
-		430C3E4723060E0E003CABCB /* PXGlobalConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXGlobalConfig.m; sourceTree = "<group>"; };
-		430C3E49230611D7003CABCB /* PXBlockingParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXBlockingParameters.h; sourceTree = "<group>"; };
-		430C3E4A23061317003CABCB /* PXBlockingParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXBlockingParameters.m; sourceTree = "<group>"; };
 		437011B23F17B9B0E089D9A9 /* Pods-pxsdk-lib-ios_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pxsdk-lib-ios_Tests.debug.xcconfig"; path = "Target Support Files/Pods-pxsdk-lib-ios_Tests/Pods-pxsdk-lib-ios_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		53A8032D674D1CAC0D0F72A9 /* Pods_pxsdk_lib_ios_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pxsdk_lib_ios_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* pxsdk-lib-ios_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pxsdk-lib-ios_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,14 +151,6 @@
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
-				4307F2282303762100C6506B /* Pixalate.h */,
-				4307F22B2303775E00C6506B /* PXImpression.h */,
-				430C3E4623060A73003CABCB /* PXGlobalConfig.h */,
-				430C3E49230611D7003CABCB /* PXBlockingParameters.h */,
-				430C3E4A23061317003CABCB /* PXBlockingParameters.m */,
-				430C3E4723060E0E003CABCB /* PXGlobalConfig.m */,
-				4307F2292303767100C6506B /* Pixalate.m */,
-				4307F22C2303787700C6506B /* PXImpression.m */,
 			);
 			path = "pxsdk-lib-ios";
 			sourceTree = "<group>";
@@ -226,7 +206,7 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				F48658AA9300BAA09A874CBB /* [CP] Embed Pods Frameworks */,
+				EC7EBC7149CAA863D30FBAE5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -264,7 +244,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = My;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Nate Tessman";
 				TargetAttributes = {
 					6003F5AD195388D20070C39A = {
@@ -358,6 +338,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		EC7EBC7149CAA863D30FBAE5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-pxsdk-lib-ios_Example/Pods-pxsdk-lib-ios_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/pixalate-ios-sdk/pixalate_ios_sdk.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pixalate_ios_sdk.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-pxsdk-lib-ios_Example/Pods-pxsdk-lib-ios_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F05AEAC1A0BDDBAACF396CA9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -382,28 +384,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-pxsdk-lib-ios_Tests/Pods-pxsdk-lib-ios_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F48658AA9300BAA09A874CBB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-pxsdk-lib-ios_Example/Pods-pxsdk-lib-ios_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/pxsdk-lib-ios/pxsdk_lib_ios.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pxsdk_lib_ios.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-pxsdk-lib-ios_Example/Pods-pxsdk-lib-ios_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -412,12 +392,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* MyAppDelegate.m in Sources */,
-				4307F22A2303767100C6506B /* Pixalate.m in Sources */,
 				6003F5A7195388D20070C39A /* MyViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
-				430C3E4B23061317003CABCB /* PXBlockingParameters.m in Sources */,
-				430C3E4823060E0E003CABCB /* PXGlobalConfig.m in Sources */,
-				4307F22D2303787700C6506B /* PXImpression.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,19 +451,32 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -515,18 +504,31 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
