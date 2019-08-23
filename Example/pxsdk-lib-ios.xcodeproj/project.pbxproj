@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2379E1FA87C79B8DD56FBD83 /* Pods_pxsdk_lib_ios_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A8032D674D1CAC0D0F72A9 /* Pods_pxsdk_lib_ios_Example.framework */; };
+		4307F22A2303767100C6506B /* Pixalate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4307F2292303767100C6506B /* Pixalate.m */; };
+		4307F22D2303787700C6506B /* PXImpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 4307F22C2303787700C6506B /* PXImpression.m */; };
+		430C3E4823060E0E003CABCB /* PXGlobalConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 430C3E4723060E0E003CABCB /* PXGlobalConfig.m */; };
+		430C3E4B23061317003CABCB /* PXBlockingParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 430C3E4A23061317003CABCB /* PXBlockingParameters.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -37,7 +41,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3A040EB7C0A9B0ECD11377CE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		3A040EB7C0A9B0ECD11377CE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		4307F2282303762100C6506B /* Pixalate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pixalate.h; sourceTree = "<group>"; };
+		4307F2292303767100C6506B /* Pixalate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pixalate.m; sourceTree = "<group>"; };
+		4307F22B2303775E00C6506B /* PXImpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXImpression.h; sourceTree = "<group>"; };
+		4307F22C2303787700C6506B /* PXImpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXImpression.m; sourceTree = "<group>"; };
+		430C3E4623060A73003CABCB /* PXGlobalConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXGlobalConfig.h; sourceTree = "<group>"; };
+		430C3E4723060E0E003CABCB /* PXGlobalConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXGlobalConfig.m; sourceTree = "<group>"; };
+		430C3E49230611D7003CABCB /* PXBlockingParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXBlockingParameters.h; sourceTree = "<group>"; };
+		430C3E4A23061317003CABCB /* PXBlockingParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXBlockingParameters.m; sourceTree = "<group>"; };
 		437011B23F17B9B0E089D9A9 /* Pods-pxsdk-lib-ios_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pxsdk-lib-ios_Tests.debug.xcconfig"; path = "Target Support Files/Pods-pxsdk-lib-ios_Tests/Pods-pxsdk-lib-ios_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		53A8032D674D1CAC0D0F72A9 /* Pods_pxsdk_lib_ios_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pxsdk_lib_ios_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* pxsdk-lib-ios_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pxsdk-lib-ios_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,10 +73,10 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		6F6F45BDD32102AEEB4DB8AF /* Pods-pxsdk-lib-ios_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pxsdk-lib-ios_Example.debug.xcconfig"; path = "Target Support Files/Pods-pxsdk-lib-ios_Example/Pods-pxsdk-lib-ios_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7C59762AB7821EF36D0FB881 /* pxsdk-lib-ios.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = "pxsdk-lib-ios.podspec"; path = "../pxsdk-lib-ios.podspec"; sourceTree = "<group>"; };
+		7C59762AB7821EF36D0FB881 /* pxsdk-lib-ios.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "pxsdk-lib-ios.podspec"; path = "../pxsdk-lib-ios.podspec"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		939C4CE9740101EF9B305096 /* Pods-pxsdk-lib-ios_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pxsdk-lib-ios_Example.release.xcconfig"; path = "Target Support Files/Pods-pxsdk-lib-ios_Example/Pods-pxsdk-lib-ios_Example.release.xcconfig"; sourceTree = "<group>"; };
-		9E5F31F1F69D209D652633DD /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		9E5F31F1F69D209D652633DD /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		E383F2EE3EE99052236BD63C /* Pods-pxsdk-lib-ios_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pxsdk-lib-ios_Tests.release.xcconfig"; path = "Target Support Files/Pods-pxsdk-lib-ios_Tests/Pods-pxsdk-lib-ios_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		F30DA4DD0C5CB863F6B58BD6 /* Pods_pxsdk_lib_ios_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pxsdk_lib_ios_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -103,7 +115,6 @@
 				437011B23F17B9B0E089D9A9 /* Pods-pxsdk-lib-ios_Tests.debug.xcconfig */,
 				E383F2EE3EE99052236BD63C /* Pods-pxsdk-lib-ios_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -111,7 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
-				6003F593195388D20070C39A /* Example for pxsdk-lib-ios */,
+				6003F593195388D20070C39A /* pxsdk-lib-ios */,
 				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
@@ -141,7 +152,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6003F593195388D20070C39A /* Example for pxsdk-lib-ios */ = {
+		6003F593195388D20070C39A /* pxsdk-lib-ios */ = {
 			isa = PBXGroup;
 			children = (
 				6003F59C195388D20070C39A /* MyAppDelegate.h */,
@@ -152,8 +163,15 @@
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				4307F2282303762100C6506B /* Pixalate.h */,
+				4307F22B2303775E00C6506B /* PXImpression.h */,
+				430C3E4623060A73003CABCB /* PXGlobalConfig.h */,
+				430C3E49230611D7003CABCB /* PXBlockingParameters.h */,
+				430C3E4A23061317003CABCB /* PXBlockingParameters.m */,
+				430C3E4723060E0E003CABCB /* PXGlobalConfig.m */,
+				4307F2292303767100C6506B /* Pixalate.m */,
+				4307F22C2303787700C6506B /* PXImpression.m */,
 			);
-			name = "Example for pxsdk-lib-ios";
 			path = "pxsdk-lib-ios";
 			sourceTree = "<group>";
 		};
@@ -256,7 +274,7 @@
 			};
 			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "pxsdk-lib-ios" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -394,8 +412,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* MyAppDelegate.m in Sources */,
+				4307F22A2303767100C6506B /* Pixalate.m in Sources */,
 				6003F5A7195388D20070C39A /* MyViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				430C3E4B23061317003CABCB /* PXBlockingParameters.m in Sources */,
+				430C3E4823060E0E003CABCB /* PXGlobalConfig.m in Sources */,
+				4307F22D2303787700C6506B /* PXImpression.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

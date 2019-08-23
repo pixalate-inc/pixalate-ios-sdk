@@ -7,9 +7,9 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'pxsdk-lib-ios'
+  s.name             = 'pxsdk'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of pxsdk-lib-ios.'
+  s.summary          = 'An impression reporting library for ios apps, by Pixalate, Inc.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,12 +18,12 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  Utility with which to send app impressions to Pixalate, as well as query about blocked status.
                        DESC
 
   s.homepage         = 'https://github.com/Nate Tessman/pxsdk-lib-ios'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  s.license          = { :type => 'LGPL-3.0', :file => 'LICENSE' }
   s.author           = { 'Nate Tessman' => 'nate@pixalate.com' }
   s.source           = { :git => 'https://github.com/Nate Tessman/pxsdk-lib-ios.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
@@ -36,7 +36,7 @@ TODO: Add long description of the pod here.
   #   'pxsdk-lib-ios' => ['pxsdk-lib-ios/Assets/*.png']
   # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
+  s.public_header_files = 'pxsdk-lib-ios/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
