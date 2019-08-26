@@ -9,12 +9,12 @@ Pod::Spec.new do |s|
 
   s.homepage         = 'https://github.com/pixalate-inc/pixalate-ios-sdk'
   s.license          = { :type => 'LGPL-3.0', :file => 'LICENSE' }
-  s.author           = { 'Nate Tessman' => 'nate@pixalate.com' }
+  s.author           = { 'Pixalate, Inc.' => 'engineering-external@pixalate.com' }
   s.source           = { :git => 'https://github.com/pixalate-inc/pixalate-ios-sdk.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'pixalate-ios-sdk/Classes/**/*'
+  s.source_files = 'pixalate-ios-sdk/**/*'
   
-  s.public_header_files = 'pixalate-ios-sdk/Classes/**/*.h'
+  s.public_header_files = 'pixalate-ios-sdk/**/*.h'
 end
