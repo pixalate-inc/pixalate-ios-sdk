@@ -25,6 +25,10 @@ NSString *const PXS8Flag = @"dvid";
 
 @implementation PXImpressionBuilder
 
+-(instancetype) init NS_SWIFT_UNAVAILABLE("use initWithClientId:") {
+    return self;
+}
+
 -(instancetype)initWithClientId: (NSString *)clientId {
     self.clientId = clientId;
     self.urlParameters = [[NSMutableDictionary<NSString*,NSString*> alloc] init];
@@ -40,9 +44,8 @@ NSString *const PXS8Flag = @"dvid";
     return self.urlParameters[ key ];
 }
 
-- (void)setObject:(NSString *)anObject forKeyedSubscript:(NSString *)key {
-    NSLog( @"%@", self.urlParameters );
-    self.urlParameters[ key ] = anObject;
+- (void)setObject:(NSString *)obj forKeyedSubscript:(NSString *)key {
+    self.urlParameters[ key ] = obj;
 }
 
 @end
@@ -58,12 +61,7 @@ NSString *const PXS8Flag = @"dvid";
 
 @implementation PXImpression
 
--(void) setParameter:(NSString*)key withValue:(NSString *)value {
-    
-}
-
-- (instancetype) initWithParameters:(NSDictionary<NSString*,NSString*>*)urlParameters {
-    
+-(instancetype) init NS_SWIFT_UNAVAILABLE("use initWithBuilder:") {
     return self;
 }
 

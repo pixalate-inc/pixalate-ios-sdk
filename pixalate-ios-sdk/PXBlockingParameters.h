@@ -16,12 +16,13 @@
 
 @end
 
-@interface PXBlockingParameters : NSObject
+@interface PXBlockingParameters : NSObject <NSCopying>
 
 @property(nonatomic,copy,readonly) NSString* _Nullable deviceId;
 @property(nonatomic,copy,readonly) NSString* _Nullable userAgent;
 @property(nonatomic,copy,readonly) NSString* _Nullable ip;
 
+- (instancetype _Nonnull) init NS_SWIFT_UNAVAILABLE("use initWithBuilder:");
 - (instancetype _Nonnull) initWithBuilder:(PXBlockingParametersBuilder * _Nonnull) builder;
 
 + (instancetype _Nonnull) makeWithBuilder:(void (^ _Nonnull)(PXBlockingParametersBuilder* _Nonnull))updateBlock;

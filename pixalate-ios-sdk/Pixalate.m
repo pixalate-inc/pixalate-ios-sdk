@@ -11,9 +11,64 @@
 NSString *const PXBaseImpressionURL = @"http://localhost:3000/i";
 NSString *const PXBaseFraudURL = @"https://api.adrta.com/services/2012/Suspect/get?";
 
+@interface PXBlockingResult : NSObject
+
+@property(nonatomic,copy) NSError* _Nullable error;
+@property(nonatomic) double probability;
+@property(nonatomic) double time;
+@property(nonatomic,readonly) BOOL valid;
+
++(instancetype _Nonnull)makeWithError:(NSError* _Nonnull)err;
++(instancetype _Nonnull)makeWithProbability:(double)probability;
+
+-(BOOL)getValid;
+
+@end
+
+@implementation PXBlockingResult
+
++(instancetype)makeWithError:(NSError *)err {
+    PXBlockingResult *res = [[PXBlockingResult alloc] init];
+    res.error = err;
+    res.time = [[NSDate date] timeIntervalSince1970] + Pixalate.globalConfig.cacheAge;
+    res.probability = 0;
+    
+    return res;
+}
+
++(instancetype)makeWithProbability:(double)probability {
+    PXBlockingResult *res = [[PXBlockingResult alloc] init];
+    res.error = nil;
+    res.probability = probability;
+    res.time = [[NSDate date] timeIntervalSince1970] + Pixalate.globalConfig.cacheAge;
+    
+    return res;
+}
+
+-(BOOL)getValid {
+    return self.time > [[NSDate date] timeIntervalSince1970];
+}
+
+@end
+
 @implementation Pixalate
 
+#define CacheResultError(parameters,error) \
+if( Pixalate.globalConfig.cacheAge > 0 ) { \
+    [blockingCache setObject:[PXBlockingResult makeWithError:error] forKey:[parameters copy]]; \
+}
+
+#define CacheResult(parameters,probability) \
+if( Pixalate.globalConfig.cacheAge > 0 ) { \
+    [blockingCache setObject:[PXBlockingResult makeWithProbability:[probability doubleValue]] forKey:[parameters copy]]; \
+}
+
 static PXGlobalConfig* config;
+static NSCache<PXBlockingParameters*,PXBlockingResult*>* blockingCache;
+
++(void)initialize {
+    blockingCache = [[NSCache<PXBlockingParameters*,PXBlockingResult*> alloc] init];
+}
 
 +(PXGlobalConfig*)globalConfig {
     @synchronized (self) {
@@ -53,12 +108,25 @@ static PXGlobalConfig* config;
     [task resume];
 }
 
-+ (void)requestBlockStatus:(PXBlockingParameters*)parameters responseHandler:(void (^ _Nonnull)(BOOL, NSError * _Nullable))handler {
++ (void)requestBlockStatus:(PXBlockingParameters*)parameters responseHandler:(void (^)(BOOL, NSError*))handler {
     if( Pixalate.globalConfig == nil ) {
         @throw [[NSException alloc] initWithName:@"PXInvalidStateException" reason:@"You must configure Pixalate.globalConfig before you can request block status." userInfo:nil];
     }
     
-    NSURLComponents* urlBuilder = [[NSURLComponents alloc] initWithString:PXBaseFraudURL];
+    PXBlockingResult *result = [blockingCache objectForKey:parameters];
+    
+    if( Pixalate.globalConfig.cacheAge > 0 ) {
+        if( result != nil ) {
+            if( result.valid ) {
+                BOOL res = result.probability > Pixalate.globalConfig.threshold;
+                handler( res, nil );
+            } else {
+                [blockingCache removeObjectForKey:parameters];
+            }
+        }
+    }
+    
+    NSURLComponents *urlBuilder = [[NSURLComponents alloc] initWithString:PXBaseFraudURL];
     
     NSMutableArray<NSURLQueryItem*>* items = [[NSMutableArray<NSURLQueryItem*> alloc] initWithCapacity:5];
     
@@ -76,9 +144,11 @@ static PXGlobalConfig* config;
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     request.HTTPMethod = @"GET";
+    request.timeoutInterval = Pixalate.globalConfig.timeoutInterval;
     
     NSURLSessionDataTask *task = [NSURLSession.sharedSession dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if( error != nil ) {
+            CacheResultError(parameters, error);
             handler( NO, error );
             return;
         }
@@ -86,6 +156,7 @@ static PXGlobalConfig* config;
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
         
         if( error != nil ) {
+            CacheResultError(parameters, error);
             handler( NO, error );
             return;
         }
@@ -99,17 +170,19 @@ static PXGlobalConfig* config;
                                        NSLocalizedDescriptionKey: desc
                                        };
             NSError *error = [[NSError alloc] initWithDomain:NSURLErrorDomain code:[status integerValue] userInfo:userInfo];
+            CacheResultError(parameters, error);
             handler( NO, error );
             return;
         }
         
-        NSNumber* probability = json[ @"probability" ];
-        NSLog( @"JSON RESPONSE: %@", probability );
+        NSNumber *probability = json[ @"probability" ];
+//        NSLog( @"JSON RESPONSE: %@", probability );
 //        NSLog( @"%@", response );
 //        NSLog( @"%@", error );
         
         BOOL res = [probability doubleValue] > Pixalate.globalConfig.threshold;
         
+        CacheResult(parameters, probability);
         handler( res, error );
     }];
     [task resume];
