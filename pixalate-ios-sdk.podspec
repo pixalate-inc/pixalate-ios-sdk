@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'pixalate-ios-sdk'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'An impression reporting library for ios apps, by Pixalate, Inc.'
 
   s.description      = <<-DESC
