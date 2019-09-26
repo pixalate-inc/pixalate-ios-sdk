@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #import "Pixalate.h"
 
-NSString *const PXBaseImpressionURL = @"http://localhost:3000/i";
+NSString *const PXBaseImpressionURL = @"http://adrta.com/i";
 NSString *const PXBaseFraudURL = @"https://api.adrta.com/services/2012/Suspect/get?";
 
 @interface PXBlockingResult : NSObject
