@@ -16,5 +16,6 @@ Pod::Spec.new do |s|
 
   s.source_files = 'pixalate-ios-sdk/**/*'
   
-  s.public_header_files = 'pixalate-ios-sdk/**/*.h'
+  s.public_header_files = 'pixalate-ios-sdk/*.h'
+  s.private_header_files = 'pixalate-ios-sdk/internal/*.h'
 end
