@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'pixalate-ios-sdk'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'An impression reporting library for ios apps, by Pixalate, Inc.'
 
   s.description      = <<-DESC
@@ -16,6 +16,6 @@ Pod::Spec.new do |s|
 
   s.source_files = 'pixalate-ios-sdk/**/*'
   
-  s.public_header_files = 'pixalate-ios-sdk/*.h'
-  s.private_header_files = 'pixalate-ios-sdk/internal/*.h'
+  s.public_header_files = 'pixalate-ios-sdk/**/*.h'
+  s.private_header_files = 'pixalate-ios-sdk/Private/*.h'
 end

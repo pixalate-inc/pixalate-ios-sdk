@@ -55,14 +55,14 @@ static NSCache<PXBlockingParameters*,PXBlockingResult*>* blockingCache;
 // no need to follow redirects manually
 + (void) sendImpressionWithURL:(NSURL *)url retry:(int) retry {
     
-    [PXLogger log:PXLogLevelDebug message:url.absoluteString];
+    [PXLogger logWithFormat:PXLogLevelDebug message:@"Impression URL: %@",url.absoluteString];
     
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
     request.HTTPMethod = @"HEAD";
     
     NSURLSessionDataTask* task = [NSURLSession.sharedSession dataTaskWithRequest:request completionHandler:^(NSData* data, NSURLResponse* response, NSError* error) {
         if( error != nil ) {
-            [PXLogger log:PXLogLevelDebug message:[NSString stringWithFormat:@"Error sending impression: %@", error]];
+            [PXLogger logWithFormat:PXLogLevelDebug message:@"Error sending impression: %@", error];
             
             if( retry < PXRetryIntervalsSize ) {
                 [PXTimer scheduledTimerWithTimeInterval:PXRetryIntervals[ retry ] block:^{
@@ -76,7 +76,7 @@ static NSCache<PXBlockingParameters*,PXBlockingResult*>* blockingCache;
         NSInteger statusCode = httpResponse.statusCode;
         
         if( statusCode != 200 ) {
-            [PXLogger log:PXLogLevelDebug message:[NSString stringWithFormat:@"Error sending impression: %ld", (long)statusCode]];
+            [PXLogger logWithFormat:PXLogLevelDebug message:@"Error sending impression: %ld", (long)statusCode];
             
             if( retry < PXRetryIntervalsSize ) {
                 [PXTimer scheduledTimerWithTimeInterval:PXRetryIntervals[ retry ] block:^{
@@ -103,8 +103,6 @@ static NSCache<PXBlockingParameters*,PXBlockingResult*>* blockingCache;
     [urlBuilder setQueryItems:items];
     
     NSURL* url = urlBuilder.URL;
-    
-    [PXLogger log:PXLogLevelInfo message:[NSString stringWithFormat:@"Impression URL: %@", url.absoluteString]];
     
     [Pixalate sendImpressionWithURL:url retry:0];
 }
@@ -141,7 +139,7 @@ static NSCache<PXBlockingParameters*,PXBlockingResult*>* blockingCache;
     
     NSURL* url = urlBuilder.URL;
     
-    [PXLogger log:PXLogLevelInfo message:[NSString stringWithFormat:@"Block Status URL: %@", url.absoluteString]];
+    [PXLogger logWithFormat:PXLogLevelInfo message:@"Block Status URL: %@", url.absoluteString];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     request.HTTPMethod = @"GET";
@@ -149,7 +147,7 @@ static NSCache<PXBlockingParameters*,PXBlockingResult*>* blockingCache;
     
     NSURLSessionDataTask *task = [NSURLSession.sharedSession dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if( error != nil ) {
-            [PXLogger log:PXLogLevelDebug message:[NSString stringWithFormat:@"Error retrieving block status: %@", error]];
+            [PXLogger logWithFormat:PXLogLevelDebug message:@"Error retrieving block status: %@", error];
             // dont cache erroring results
             // CacheResultError(parameters, error);
             handler( NO, error );
@@ -159,7 +157,7 @@ static NSCache<PXBlockingParameters*,PXBlockingResult*>* blockingCache;
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
         
         if( error != nil ) {
-            [PXLogger log:PXLogLevelDebug message:[NSString stringWithFormat:@"Error retrieving block status: %@", error]];
+            [PXLogger logWithFormat:PXLogLevelDebug message:@"Error retrieving block status: %@", error];
             // dont cache erroring results
             // CacheResultError(parameters, error);
             handler( NO, error );
@@ -183,7 +181,7 @@ static NSCache<PXBlockingParameters*,PXBlockingResult*>* blockingCache;
         
         NSNumber *probability = json[ @"probability" ];
         
-        [PXLogger log:PXLogLevelDebug message:[NSString stringWithFormat:@"Probability: %@", probability]];
+        [PXLogger logWithFormat:PXLogLevelDebug message:@"Probability: %@", probability];
         
         BOOL res = [probability doubleValue] > Pixalate.globalConfig.threshold;
         

@@ -1,0 +1,6 @@
+target 'sample-app-swift' do
+  use_frameworks!
+
+  pod 'pixalate-ios-sdk'
+  pod 'mopub-ios-sdk'
+end
