@@ -11,11 +11,13 @@
 #import "PXImpression.h"
 #import "PXBlockingParameters.h"
 #import "PXGlobalConfig.h"
+#import "PXLogLevel.h"
 
 @interface Pixalate : NSObject
 
 + (PXGlobalConfig* _Nullable)globalConfig;
 + (void)setGlobalConfig:(PXGlobalConfig* _Nonnull)config;
++ (void)setLogLevel:(PXLogLevel)level;
 
 + (void)sendImpression:(PXImpression* _Nonnull)impression NS_SWIFT_NAME(sendImpression(_:));
 + (void)requestBlockStatus:(PXBlockingParameters* _Nonnull)parameters responseHandler:(void (^ _Nonnull)(BOOL block, NSError * _Nullable error))handler;

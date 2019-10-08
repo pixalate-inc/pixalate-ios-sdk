@@ -1,0 +1,4 @@
+target 'sample-app-objc' do
+  pod 'pixalate-ios-sdk'
+  pod 'mopub-ios-sdk' 
+end

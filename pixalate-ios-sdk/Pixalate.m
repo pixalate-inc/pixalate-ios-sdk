@@ -7,49 +7,15 @@
 
 #include <stdlib.h>
 #import "Pixalate.h"
+#import "PXLogger.h"
+#import "PXBlockingResult.h"
+#import "PXTimer.h"
 
-NSString *const PXBaseImpressionURL = @"http://adrta.com/i";
-NSString *const PXBaseFraudURL = @"https://api.adrta.com/services/2012/Suspect/get?";
+NSString *const PXBaseImpressionURL = @"https://adrta.com/i";
+NSString *const PXBaseFraudURL = @"https://api.adrta.com/services/2012/Suspect/get";
 
-@interface PXBlockingResult : NSObject
-
-@property(nonatomic,copy) NSError* _Nullable error;
-@property(nonatomic) double probability;
-@property(nonatomic) double time;
-@property(nonatomic,readonly) BOOL valid;
-
-+(instancetype _Nonnull)makeWithError:(NSError* _Nonnull)err;
-+(instancetype _Nonnull)makeWithProbability:(double)probability;
-
--(BOOL)getValid;
-
-@end
-
-@implementation PXBlockingResult
-
-+(instancetype)makeWithError:(NSError *)err {
-    PXBlockingResult *res = [[PXBlockingResult alloc] init];
-    res.error = err;
-    res.time = [[NSDate date] timeIntervalSince1970] + Pixalate.globalConfig.cacheAge;
-    res.probability = 0;
-    
-    return res;
-}
-
-+(instancetype)makeWithProbability:(double)probability {
-    PXBlockingResult *res = [[PXBlockingResult alloc] init];
-    res.error = nil;
-    res.probability = probability;
-    res.time = [[NSDate date] timeIntervalSince1970] + Pixalate.globalConfig.cacheAge;
-    
-    return res;
-}
-
--(BOOL)getValid {
-    return self.time > [[NSDate date] timeIntervalSince1970];
-}
-
-@end
+NSTimeInterval const PXRetryIntervals[] = { 1, 2, 4, 8, 16 };
+int const PXRetryIntervalsSize = (sizeof PXRetryIntervals) / (sizeof PXRetryIntervals[0]);
 
 @implementation Pixalate
 
@@ -82,6 +48,45 @@ static NSCache<PXBlockingParameters*,PXBlockingResult*>* blockingCache;
     }
 }
 
++ (void) setLogLevel: (PXLogLevel)level {
+    [PXLogger setLogLevel:level];
+}
+
+// no need to follow redirects manually
++ (void) sendImpressionWithURL:(NSURL *)url retry:(int) retry {
+    
+    [PXLogger logWithFormat:PXLogLevelDebug message:@"Impression URL: %@",url.absoluteString];
+    
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
+    request.HTTPMethod = @"HEAD";
+    
+    NSURLSessionDataTask* task = [NSURLSession.sharedSession dataTaskWithRequest:request completionHandler:^(NSData* data, NSURLResponse* response, NSError* error) {
+        if( error != nil ) {
+            [PXLogger logWithFormat:PXLogLevelDebug message:@"Error sending impression: %@", error];
+            
+            if( retry < PXRetryIntervalsSize ) {
+                [PXTimer scheduledTimerWithTimeInterval:PXRetryIntervals[ retry ] block:^{
+                    [Pixalate sendImpressionWithURL:url retry:retry+1];
+                }];
+            }
+        }
+        
+        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+        
+        NSInteger statusCode = httpResponse.statusCode;
+        
+        if( statusCode != 200 ) {
+            [PXLogger logWithFormat:PXLogLevelDebug message:@"Error sending impression: %ld", (long)statusCode];
+            
+            if( retry < PXRetryIntervalsSize ) {
+                [PXTimer scheduledTimerWithTimeInterval:PXRetryIntervals[ retry ] block:^{
+                    [Pixalate sendImpressionWithURL:url retry:retry+1];
+                }];
+            }
+        }
+    }];
+    [task resume];
+}
 + (void) sendImpression: (PXImpression*) impression {
     NSURLComponents* urlBuilder = [[NSURLComponents alloc] initWithString:PXBaseImpressionURL];
     
@@ -99,13 +104,7 @@ static NSCache<PXBlockingParameters*,PXBlockingResult*>* blockingCache;
     
     NSURL* url = urlBuilder.URL;
     
-    NSLog( @"%@", url.absoluteString );
-    
-    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
-    request.HTTPMethod = @"HEAD";
-    
-    NSURLSessionDataTask* task = [NSURLSession.sharedSession dataTaskWithRequest:request];
-    [task resume];
+    [Pixalate sendImpressionWithURL:url retry:0];
 }
 
 + (void)requestBlockStatus:(PXBlockingParameters*)parameters responseHandler:(void (^)(BOOL, NSError*))handler {
@@ -140,7 +139,7 @@ static NSCache<PXBlockingParameters*,PXBlockingResult*>* blockingCache;
     
     NSURL* url = urlBuilder.URL;
     
-    NSLog( @"%@", url.absoluteString );
+    [PXLogger logWithFormat:PXLogLevelInfo message:@"Block Status URL: %@", url.absoluteString];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     request.HTTPMethod = @"GET";
@@ -148,7 +147,9 @@ static NSCache<PXBlockingParameters*,PXBlockingResult*>* blockingCache;
     
     NSURLSessionDataTask *task = [NSURLSession.sharedSession dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if( error != nil ) {
-            CacheResultError(parameters, error);
+            [PXLogger logWithFormat:PXLogLevelDebug message:@"Error retrieving block status: %@", error];
+            // dont cache erroring results
+            // CacheResultError(parameters, error);
             handler( NO, error );
             return;
         }
@@ -156,7 +157,9 @@ static NSCache<PXBlockingParameters*,PXBlockingResult*>* blockingCache;
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
         
         if( error != nil ) {
-            CacheResultError(parameters, error);
+            [PXLogger logWithFormat:PXLogLevelDebug message:@"Error retrieving block status: %@", error];
+            // dont cache erroring results
+            // CacheResultError(parameters, error);
             handler( NO, error );
             return;
         }
@@ -170,15 +173,15 @@ static NSCache<PXBlockingParameters*,PXBlockingResult*>* blockingCache;
                                        NSLocalizedDescriptionKey: desc
                                        };
             NSError *error = [[NSError alloc] initWithDomain:NSURLErrorDomain code:[status integerValue] userInfo:userInfo];
-            CacheResultError(parameters, error);
+            // dont cache erroring results
+            // CacheResultError(parameters, error);
             handler( NO, error );
             return;
         }
         
         NSNumber *probability = json[ @"probability" ];
-//        NSLog( @"JSON RESPONSE: %@", probability );
-//        NSLog( @"%@", response );
-//        NSLog( @"%@", error );
+        
+        [PXLogger logWithFormat:PXLogLevelDebug message:@"Probability: %@", probability];
         
         BOOL res = [probability doubleValue] > Pixalate.globalConfig.threshold;
         
