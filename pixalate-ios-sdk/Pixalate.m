@@ -11,7 +11,7 @@
 #import "PXBlockingResult.h"
 #import "PXTimer.h"
 
-NSString *const PXBaseImpressionURL = @"http://adrta.com/i";
+NSString *const PXBaseImpressionURL = @"https://adrta.com/i";
 NSString *const PXBaseFraudURL = @"https://api.adrta.com/services/2012/Suspect/get";
 
 NSTimeInterval const PXRetryIntervals[] = { 1, 2, 4, 8, 16 };

@@ -25,7 +25,7 @@ class ViewController: UIViewController, MPAdViewDelegate {
     
     func adViewDidLoadAd(_ view: MPAdView!, adSize: CGSize) {
         // Send your impression as close to Begin to Render as possible, according to MRC guidelines.
-        Pixalate.sendImpression(PXImpression.make(clientId: "[CLIENT ID]", builder: { builder in
+        Pixalate.sendImpression(PXImpression.make(clientId: "[CLIENT_ID]", builder: { builder in
             builder[ PXCampaignId ] = "[CAMPAIGN_ID]"
             builder[ PXCreativeSize ] = String(format: "%dx%d", Int(self.AD_SIZE.width), Int(self.AD_SIZE.height))
             builder[ PXAppId ] = "com.example.app"

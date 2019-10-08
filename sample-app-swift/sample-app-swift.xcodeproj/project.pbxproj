@@ -185,18 +185,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-sample-app-swift/Pods-sample-app-swift-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/mopub-ios-sdk/MoPub.framework",
-				"${BUILT_PRODUCTS_DIR}/pixalate-ios-sdk/pixalate_ios_sdk.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-sample-app-swift/Pods-sample-app-swift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MoPub.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pixalate_ios_sdk.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-sample-app-swift/Pods-sample-app-swift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
