@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'pixalate_ios_sdk/**/*'
+  s.source_files = 'pixalate_ios_sdk/**/*.{h,m}'
   
   s.public_header_files = 'pixalate_ios_sdk/**/*.h'
   s.private_header_files = 'pixalate_ios_sdk/Private/*.h'
