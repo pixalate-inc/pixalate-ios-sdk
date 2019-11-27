@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,7 @@
 		431DE8602314940400FF2BB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 431DE85E2314940400FF2BB0 /* LaunchScreen.storyboard */; };
 		431DE8632314940400FF2BB0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 431DE8622314940400FF2BB0 /* main.m */; };
 		43F6B3E92314B0BF00AA9FFD /* MySwiftObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F6B3E82314B0BF00AA9FFD /* MySwiftObject.swift */; };
-		44AC7583FB3E3B2B85B4B389 /* libPods-sample-app-objc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D1210CAD88D89982198B7DD /* libPods-sample-app-objc.a */; };
+		B0577136950BCEA645B9E49B /* libPods-sample-app-objc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D1210CAD88D89982198B7DD /* libPods-sample-app-objc.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44AC7583FB3E3B2B85B4B389 /* libPods-sample-app-objc.a in Frameworks */,
+				B0577136950BCEA645B9E49B /* libPods-sample-app-objc.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,20 +360,24 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 59621F441BEE2696E4A31DD8 /* Pods-sample-app-objc.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "sample-app-objc/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pixalate.sample-app-objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "sample-app-objc/sample-app-objc-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -381,19 +385,23 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BD7EFC1B691D089290261EE6 /* Pods-sample-app-objc.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "sample-app-objc/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pixalate.sample-app-objc";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "sample-app-objc/sample-app-objc-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s";
 			};
 			name = Release;
 		};

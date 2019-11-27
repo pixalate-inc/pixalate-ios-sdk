@@ -14,20 +14,6 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "43A4C52B2314990A009385FB"
-               BuildableName = "sample-app-swift.app"
-               BlueprintName = "sample-app-swift"
-               ReferencedContainer = "container:sample-app-swift.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "EA59E5550D64F7673BED361126979449"
                BuildableName = "pixalate_ios_sdk.framework"
                BlueprintName = "pixalate-ios-sdk"
@@ -43,20 +29,11 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "43A4C52B2314990A009385FB"
-            BuildableName = "sample-app-swift.app"
-            BlueprintName = "sample-app-swift"
-            ReferencedContainer = "container:sample-app-swift.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -65,16 +42,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "43A4C52B2314990A009385FB"
-            BuildableName = "sample-app-swift.app"
-            BlueprintName = "sample-app-swift"
-            ReferencedContainer = "container:sample-app-swift.xcodeproj">
+            BlueprintIdentifier = "EA59E5550D64F7673BED361126979449"
+            BuildableName = "pixalate_ios_sdk.framework"
+            BlueprintName = "pixalate-ios-sdk"
+            ReferencedContainer = "container:Pods/Pods.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -84,16 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "43A4C52B2314990A009385FB"
-            BuildableName = "sample-app-swift.app"
-            BlueprintName = "sample-app-swift"
-            ReferencedContainer = "container:sample-app-swift.xcodeproj">
+            BlueprintIdentifier = "EA59E5550D64F7673BED361126979449"
+            BuildableName = "pixalate_ios_sdk.framework"
+            BlueprintName = "pixalate-ios-sdk"
+            ReferencedContainer = "container:Pods/Pods.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

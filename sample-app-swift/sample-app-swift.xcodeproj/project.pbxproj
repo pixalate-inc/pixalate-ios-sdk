@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -350,22 +350,31 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 46AAC7779EC6E65F9891625F /* Pods-sample-app-swift.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					x86_64,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2CF92JGK3B;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/mopub-ios-sdk/MoPub.framework/Headers\"/**",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/pixalate-ios-sdk/pixalate_ios_sdk.framework/Headers\"/**",
 				);
 				INFOPLIST_FILE = "sample-app-swift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pixalate.sample-app-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = $ARCHS;
 			};
 			name = Debug;
 		};
@@ -373,22 +382,31 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C7399A87E6C60AE5965C4F3D /* Pods-sample-app-swift.release.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					x86_64,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2CF92JGK3B;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/mopub-ios-sdk/MoPub.framework/Headers\"/**",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/pixalate-ios-sdk/pixalate_ios_sdk.framework/Headers\"/**",
 				);
 				INFOPLIST_FILE = "sample-app-swift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pixalate.sample-app-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = $ARCHS;
 			};
 			name = Release;
 		};

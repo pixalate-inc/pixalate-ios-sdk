@@ -8,6 +8,8 @@
 #ifndef Pixalate_h
 #define Pixalate_h
 
+#import <Foundation/Foundation.h>
+
 #import "PXImpression.h"
 #import "PXBlockingParameters.h"
 #import "PXGlobalConfig.h"

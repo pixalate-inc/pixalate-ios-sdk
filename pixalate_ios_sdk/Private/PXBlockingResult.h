@@ -8,6 +8,8 @@
 #ifndef PXBlockingResult_h
 #define PXBlockingResult_h
 
+#import <Foundation/Foundation.h>
+
 @interface PXBlockingResult : NSObject
 
 @property(nonatomic,copy) NSError* _Nullable error;

@@ -8,6 +8,8 @@
 #ifndef PXGlobalConfig_h
 #define PXGlobalConfig_h
 
+#import <Foundation/Foundation.h>
+
 @interface PXGlobalConfigBuilder : NSObject
 
 @property(nonatomic,copy) NSString* _Nonnull username;

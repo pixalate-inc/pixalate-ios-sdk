@@ -8,6 +8,8 @@
 #ifndef PXLogLevel_h
 #define PXLogLevel_h
 
+#import <Foundation/Foundation.h>
+
 typedef NS_ENUM(NSInteger, PXLogLevel) {
     PXLogLevelNone = 0,
     PXLogLevelInfo = 1,

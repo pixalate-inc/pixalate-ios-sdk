@@ -8,6 +8,8 @@
 #ifndef PXBlockingParameters_h
 #define PXBlockingParameters_h
 
+#import <Foundation/Foundation.h>
+
 @interface PXBlockingParametersBuilder : NSObject
 
 @property(nonatomic,copy) NSString* _Nullable deviceId;

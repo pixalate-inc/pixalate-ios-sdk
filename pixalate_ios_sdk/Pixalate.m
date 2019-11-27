@@ -133,7 +133,7 @@ static NSCache<PXBlockingParameters*,PXBlockingResult*>* blockingCache;
     [items addObject:[[NSURLQueryItem alloc] initWithName:@"password" value:Pixalate.globalConfig.password]];
     if( parameters.deviceId != nil ) [items addObject:[[NSURLQueryItem alloc] initWithName:@"deviceId" value:parameters.deviceId]];
     if( parameters.userAgent != nil ) [items addObject:[[NSURLQueryItem alloc] initWithName:@"userAgent" value:parameters.userAgent]];
-    if( parameters.ip != nil ) [items addObject:[[NSURLQueryItem alloc] initWithName:@"userAgent" value:parameters.ip]];
+    if( parameters.ip != nil ) [items addObject:[[NSURLQueryItem alloc] initWithName:@"ip" value:parameters.ip]];
     
     [urlBuilder setQueryItems:items];
     

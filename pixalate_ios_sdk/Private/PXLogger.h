@@ -8,6 +8,8 @@
 #ifndef PXLogger_h
 #define PXLogger_h
 
+#import <Foundation/Foundation.h>
+
 #import "PXLogLevel.h"
 
 @interface PXLogger : NSObject

@@ -8,6 +8,8 @@
 #ifndef PXTimer_h
 #define PXTimer_h
 
+#import <Foundation/Foundation.h>
+
 typedef void (^PXTimerBlock)(void);
 
 @interface PXTimer : NSObject

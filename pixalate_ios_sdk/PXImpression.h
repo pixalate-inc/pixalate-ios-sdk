@@ -8,6 +8,8 @@
 #ifndef PXImpression_h
 #define PXImpression_h
 
+#import <Foundation/Foundation.h>
+
 @interface PXImpressionBuilder : NSObject
 
 @property(nonatomic) BOOL isVideo;
